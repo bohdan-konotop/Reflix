@@ -1,0 +1,76 @@
+@import "variables";
+
+.login-form__container {
+  background: url("../img/login-background.jpg") top no-repeat;
+  min-height: 100vh;
+  padding-top: 15vh;
+  box-sizing: border-box;
+}
+
+.login-form__wrapper {
+  padding: 30px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  width: 420px;
+  hr {
+    height: 1px;
+    border: 0;
+    background: #333;
+  }
+}
+
+.login-form__link__active {
+  font-size: 28px;
+  color: #fff;
+}
+
+.login-form__link {
+  font-size: 18px;
+  margin-left: 20px;
+  cursor: pointer;
+  a {
+    text-decoration: none;
+    color: $main-red;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    background: transparent;
+    border: 2px solid #d2d2d2;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    &::placeholder {
+      color: #d2d2d2;
+    }
+  }
+  &__error {
+    padding-top: 15px;
+    font-size: 18px;
+    color: $main-red;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+.login__btn {
+  height: 50px;
+  background: transparent;
+  border: 1px solid #d2d2d2;
+  font-size: 18px;
+  color: #d2d2d2;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+    border: 1px solid #fff;
+  }
+}
