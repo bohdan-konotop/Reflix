@@ -21,9 +21,8 @@ const Header = () => {
 
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem('users'));
-    if(!users) {
-      history.push('/sign-in');
-    } else if (!users.find(el=> el.isLoggedIn)) {
+
+    if (!users?.find(el=> el.isLoggedIn)) {
       history.push('/sign-in');
     }
   }, [update])

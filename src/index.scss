@@ -1,43 +1,33 @@
 @import 'assets/styles/reset.scss';
 @import "assets/styles/login.scss";
 @import "assets/styles/variables";
+@import 'assets/styles/mixins.scss';
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: #000;
+  background: $black;
 }
 
 .container {
   margin: 0 auto;
   width: 1320px;
-}
-
-@media (max-width: 1400px) {
-  .container {
+  @include x-large {
     width: 1140px;
   }
-}
-
-@media (max-width: 1200px) {
-  .container {
+  
+  @include large {
     width: 960px;
   }
-}
-
-@media (max-width: 992px) {
-  .container {
+  
+  @include medium {
     width: 720px;
   }
-}
-
-@media (max-width: 768px) {
-  .container {
+  
+  @include small {
     width: 540px;
   }
-}
-
-@media (max-width: 576px) {
-  .container {
+  
+  @include extra-small {
     width: 100%;
   }
 }
@@ -45,21 +35,32 @@ body {
 .header {
   width: 100%;
   background: $dark-gray;
-  &__logo a {
-    font-size: 28px;
-    font-weight: 700;
-    color: $main-red;
-    text-decoration: none;
+  &__logo {
+    @include small {
+      padding: 10px 0;
+    }
+    
+    a {
+      font-size: 28px;
+      font-weight: 700;
+      color: $main-red;
+      text-decoration: none; 
+    }
   }
 
+  &__nav__list {
+    @include small {
+      padding: 10px 0;
+    }
+  }
+  
   &__nav__list__item {
     display: inline-block;
     padding: 0 15px;
-    //color: #fff;
     font-size: 18px;
     a {
       text-decoration: none;
-      color: #fff;
+      color: $white;
     }
   }
 
@@ -70,14 +71,18 @@ body {
       height: 35px;
       padding-left: 15px;
       background: transparent;
-      border: 1px solid #d2d2d2;
+      border: 1px solid $light-gray;
       outline: none;
       font-size: 15px;
-      color: #fff;
+      color: $white;
 
       &::placeholder {
-        color: #d2d2d2;
+        color: $light-gray;
       }
+    }
+
+    @include small {
+      padding: 10px 0;
     }
   }
 }
@@ -88,27 +93,12 @@ body {
   justify-content: space-between;
   height: 100%;
   min-height: 50px;
-}
-
-@media (max-width: 767px) {
-  .header > .container {
+  
+  @include small {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  .header__logo {
-    padding: 10px 0;
-  }
-
-  .header__nav__list {
-    padding: 10px 0;
-  }
-
-
-  .header__search {
-    padding: 10px 0;
   }
 }
 
@@ -140,14 +130,12 @@ body {
         margin-top: 15px;
       }
     }
-  }
-}
-
-@media (max-width: 576px) {
-    .main__posts {
+    
+    @include extra-small {
       display: flex;
       justify-content: center;
     }
+  }
 }
 
 .user-list {
@@ -161,10 +149,19 @@ body {
 
 .movie, .user {
   display: flex;
+  &__description {
+    @include small {
+      padding: 10px;
+    }
+  }
+  @include small {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .movie__description, .user__description {
-  color: #d2d2d2;
+  color: $light-gray;
   font-size: 17px;
   padding-left: 30px;
   width: 100%;
@@ -181,27 +178,17 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .movie, .user {
-    flex-direction: column;
-    align-items: center;
-    &__description {
-      padding: 10px;
-    }
-  }
-}
-
 .like__btn, .friend__btn {
   height: 50px;
   width: 100%;
   margin-top: 10px;
   background: transparent;
-  border: 1px solid #d2d2d2;
+  border: 1px solid $light-gray;
   font-size: 18px;
-  color: #d2d2d2;
+  color: $light-gray;
   cursor: pointer;
   &:hover {
-    color: #fff;
-    border: 1px solid #fff;
+    color: $white;
+    border: 1px solid $white;
   }
 }
